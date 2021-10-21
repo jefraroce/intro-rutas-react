@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Gatito from './components/Gatito';
+import Perrito from './components/Perrito';
+import Login from './pages/Login';
+import Navbar from './components/Navbar';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+
+      <div className="container-fluid">
+
+        {/* A <Switch> looks through its children <Route>s and renders the first one that matches the current URL. */}
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+
+          <Route exact path="/gatito">
+            <Gatito />
+          </Route>
+
+          <Route exact path="/perrito">
+            <Perrito />
+          </Route>
+
+          <Route>
+            <h1>Página NO Encontrada</h1>
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
