@@ -5,6 +5,9 @@ import Perrito from './components/Perrito';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Lista from './components/Lista';
+import '@popperjs/core';
+import 'bootstrap';
 
 function App() {
   return (
@@ -25,6 +28,10 @@ function App() {
 
           <Route exact path="/perrito">
             <Perrito />
+          </Route>
+
+          <Route exact path="/lista">
+            <Lista />
           </Route>
 
           <Route>
